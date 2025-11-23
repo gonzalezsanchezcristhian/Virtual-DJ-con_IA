@@ -4,29 +4,28 @@
 - Cristhian Gonzalez
 - Christopher Aguiño 
 # Virtual DJ con IA 🎶🤖
-Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza inteligencia artificial para la detección automática de emociones a través de la cámara. El sistema analiza las expresiones faciales del usuario en tiempo real y determina su estado emocional (felicidad, tristeza, enojo, calma, entre otros). Con base en esta detección, la aplicación se conecta con la API de Spotify para recomendar música personalizada que se adapte al estado emocional del usuario. Además, ofrece un historial de emociones registradas, sugerencias musicales dinámicas y visualizaciones interactivas que enriquecen la experiencia de escucha.
+Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza inteligencia artificial para la detección automática de emociones a través de la cámara. El sistema analiza las expresiones faciales del usuario en tiempo real y determina su estado emocional (felicidad, tristeza, enojo,neutral ,disgustado ). Con base en esta detección, la aplicación se conecta con la API de Spotify para recomendar música personalizada que se adapte al estado emocional del usuario. Además, ofrece un historial de emociones registradas, sugerencias musicales dinámicas y visualizaciones interactivas.
 
 <img width="1900" height="919" alt="image" src="https://github.com/user-attachments/assets/2bb995ee-8f09-4766-b5c2-c41a5e9e73c4" />
 <img width="1884" height="890" alt="image" src="https://github.com/user-attachments/assets/0b162e2c-481f-44e4-b611-a9b359a49272" />
 <img width="1881" height="910" alt="image" src="https://github.com/user-attachments/assets/af28d809-ffaf-429d-a6d8-ef59df877fc1" />
 
 
-Características principales
-- Mezcla automática de canciones mediante IA (detección de tempo, tono y género).
-- Recomendaciones musicales personalizadas según historial y preferencias del usuario.
-- Visualización interactiva de ondas de sonido y espectrogramas.
+# Características principales
+- Detección automática de emociones mediante la cámara usando inteligencia artificial (análisis de expresiones faciales en tiempo real).
+- Recomendaciones musicales personalizadas con la API de Spotify según el estado emocional detectado.
+- Visualización interactiva de emociones y música sugerida (gráficas, indicadores de estado, playlists dinámicas).
 - Gestión de usuarios con autenticación, registro y perfiles personalizados (incluye foto de perfil almacenada en AWS S3).
-- Modo DJ en vivo para mezclar canciones en tiempo real desde la web.
-- Noticias y consejos sobre música, producción y tendencias en la industria.
+- Historial emocional y musical que permite consultar las emociones detectadas y las canciones recomendadas en cada sesión.
 
-Tecnologías utilizadas
-- Backend: Django 5.2.1, PostgreSQL
+# Tecnologías utilizadas
+- Backend: Django 5.2.1, sqlitebrowser
 - Frontend: Bootstrap 5, HTML5, CSS3, JavaScript
 - IA: Modelos de Machine Learning para análisis de audio (Librosa, TensorFlow/PyTorch)
 - Almacenamiento de archivos: AWS S3 (perfiles), almacenamiento local (canciones)
 - Otros: Django Storages, python-decouple, dotenv
 
-Estructura del proyecto
+# Estructura del proyecto
 ├── manage.py
 ├── requirements.txt
 ├── .env
