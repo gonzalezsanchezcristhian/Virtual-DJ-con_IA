@@ -1,0 +1,40 @@
+# Project requirements generated from the project's virtual environment
+# Main framework
+Django==5.2.6
+
+# Environment and config
+python-dotenv==1.1.1
+python-decouple==3.8
+
+# HTTP / AWS / storage
+requests==2.32.5
+boto3==1.40.67
+botocore==1.40.67
+s3transfer==0.14.0
+django-storages==1.14.6
+
+# Images
+Pillow==12.0.0
+
+# DB / SQL utilities
+sqlparse==0.5.3
+
+# Timezone data
+tzdata==2025.2
+
+# ASGI utilities
+asgiref==3.9.1
+
+# Networking deps (used by requests/boto/etc.)
+urllib3==2.5.0
+charset_normalizer==3.4.4
+idna==3.11
+certifi==2025.10.5
+
+# Small helper libs
+jmespath==1.0.1
+six==1.17.0
+
+# Optionally include development/test tools if you use them
+# pytest
+# factory-boy

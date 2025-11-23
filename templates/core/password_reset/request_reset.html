@@ -1,0 +1,29 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Authentication/css/recuperar.css' %}">
+
+<div class="recover-container">
+    <div class="recover-card">
+        <div class="icon-container">
+            <i class="lock-icon">🔒</i>
+        </div>
+        <h2>Recuperar contraseña</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <label for="email" class="email-label">E-mail</label>
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+
+            <button type="submit" class="submit-btn">Enviar enlace</button>
+        </form>
+
+        <div class="back-links">
+            <a href="{% url 'signin' %}" class="back">Atrás</a>
+            <p>¿No tienes una cuenta?
+                <a href="{% url 'signup' %}" class="create">Crear una cuenta</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

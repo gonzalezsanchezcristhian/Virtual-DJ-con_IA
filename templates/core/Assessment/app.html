@@ -1,0 +1,26 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Assessment/css/app.css' %}">
+<div class="dashboard-wrap">
+    <div class="dashboard-card">
+        <div class="dashboard-header">       
+            <h1>Hola {{ request.user.first_name|default:request.user.username }},</h1>
+            <p class="subtitle">¿Cómo te sientes hoy?</p>
+        </div>
+        <div class="dashboard-actions">
+            <a href="{% url 'detectar' %}" class="dash-btn" data-action="detectar">😊 Detectar emoción</a>
+            <a href="{% url 'historial_emociones' %}" class="dash-btn" data-action="historial">📜 Historial de emociones</a>
+        </div>
+    </div>
+</div>
+<div id="modalEscribir" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" id="cerrarModalEscribir">&times;</span>
+    <h3>Escribe tu emoción</h3>
+    <input type="text" id="inputEmocion" placeholder="Ejemplo: happy, sad, angry..." />
+    <button id="guardarEmocion" class="btn-guardar">Guardar emoción</button>
+  </div>
+</div>
+<script src="{% static 'Assessment/js/detectar.js' %}"></script>
+{% endblock %}

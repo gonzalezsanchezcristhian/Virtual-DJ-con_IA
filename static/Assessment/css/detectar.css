@@ -1,0 +1,416 @@
+body {
+  background: radial-gradient(circle at top, #10001f, #000);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Pantalla de detección --- */
+.emocion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background: url("https://cdn.pixabay.com/photo/2022/07/06/11/53/purple-waves-7305569_960_720.png") center/cover no-repeat;
+}
+
+.emocion-card {
+  background: rgba(20, 0, 40, 0.85);
+  border-radius: 20px;
+  padding: 35px;
+  width: 380px;
+  box-shadow: 0 0 25px rgba(160, 0, 255, 0.5);
+  position: relative;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.titulo {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 0 0 8px #a855f7;
+}
+
+video {
+  border-radius: 12px;
+  border: 3px solid #a855f7;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.btn-detectar, .btn-reproducir {
+  background: linear-gradient(90deg, #6a00ff, #a855f7);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-detectar:hover, .btn-reproducir:hover {
+  background: linear-gradient(90deg, #9d4edd, #c77dff);
+  transform: scale(1.03);
+}
+
+.mensaje {
+  color: #a855f7;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* Botón 'Volver a detectar' (estilo compacto, inline) */
+.btn-volver-detectar {
+  display: inline-block;
+  background: transparent;
+  color: #f3e8ff;
+  border: 2px solid rgba(168,85,247,0.25);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.18s ease;
+  margin-left: 8px;
+  box-shadow: 0 4px 12px rgba(120, 40, 180, 0.08);
+}
+.btn-volver-detectar:hover {
+  background: linear-gradient(90deg, rgba(105,0,255,0.12), rgba(168,85,247,0.14));
+  transform: translateY(-2px);
+  border-color: rgba(168,85,247,0.6);
+}
+
+.resultado {
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 15px;
+  color: #fff;
+}
+
+/* --- Pantalla de Playlist --- */
+#playlists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: radial-gradient(circle at center, #12002b, #000);
+  min-height: 100vh;
+}
+
+.playlist-container {
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+}
+
+.playlist-title {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 10px #a855f7;
+  margin-bottom: 30px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.song:hover {
+  background: rgba(180, 0, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.song img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #a855f7;
+}
+
+.song-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.song-info p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: #c9a8ff;
+}
+
+.btn-volver {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #a855f7, #7b2ff7);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-volver:hover {
+  background: linear-gradient(90deg, #c77dff, #8b5cf6);
+}
+/* === MODAL === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content {
+  background: rgba(20, 0, 40, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  width: 80%;
+  max-width: 900px;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(160, 0, 255, 0.6);
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cerrar:hover {
+  color: #a855f7;
+}
+
+
+/* ======== 🎧 CONTENEDOR PRINCIPAL ======== */
+.playlist-container {
+  text-align: center;
+  color: white;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.playlist-title {
+  font-size: 1.5em;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* ======== 🧱 GRID ======== */
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+/* ======== 💿 TARJETAS ======== */
+.playlist-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.7rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.playlist-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 18px rgba(124, 104, 238, 0.6);
+}
+
+/* ======== 🖼️ IMAGEN ======== */
+.playlist-img {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ======== 📄 INFORMACIÓN ======== */
+.playlist-info {
+  text-align: center;
+  margin-bottom: 0.4rem;
+  height: 38px;
+  overflow: hidden;
+}
+
+.playlist-info h4 {
+  font-size: 0.85rem;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.playlist-info p {
+  font-size: 0.75rem;
+  color: #bbb;
+  margin: 0;
+}
+
+/* ======== 🎵 SPOTIFY EMBED (ajustado y sin scroll) ======== */
+.spotify-frame {
+  border-radius: 8px;
+  width: 150%;
+  height: 80px; /* Mantiene tu proporción */
+  border: none;
+  overflow: hidden;
+  background: #121212;
+  margin-top: 0.3rem;
+  transform: scale(0.85); /* 🔹 Encaja visualmente dentro del card */
+  transform-origin: center;
+  display: block;
+}
+
+.spotify-frame::-webkit-scrollbar {
+  display: none;
+}
+
+.playlist-card:hover .spotify-frame {
+  transform: scale(0.88);
+  transition: transform 0.3s ease;
+}
+
+/* ======== ✨ ANIMACIÓN ======== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======== 📱 RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .playlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .playlist-card {
+    overflow: hidden;
+    width: 200px;
+  }
+  .playlist-img {
+    height: 110px;
+  }
+}
+
+@media (max-width: 600px) {
+  .playlist-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .playlist-card {
+    width: 85%;
+    max-width: 300px;
+  }
+  .playlist-img {
+    height: 100px;
+  }
+}
+
+/* === Efecto visual al reproducir === */
+.playlist-card.playing {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.8);
+  transform: scale(1.05);
+  animation: pulsePlay 1.2s ease-in-out infinite;
+}
+
+@keyframes pulsePlay {
+  0% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(168, 85, 247, 1); }
+  100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #1e0036;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 850px;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+  transition: color 0.3s ease;
+}
+
+.cerrar:hover {
+  color: #ff4b4b;
+}

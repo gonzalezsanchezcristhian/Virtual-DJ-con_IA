@@ -1,0 +1,19 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Authentication/css/recuperar.css' %}">
+
+<div class="recover-container">
+    <div class="recover-card">
+        <div class="icon-container">
+            <i class="lock-icon">📧</i>
+        </div>
+
+        <img src="{% static 'Authentication/image/Logo2.png' %}" alt="MODAMIND Logo" class="logo-img">
+        <h2>Revisa tu correo</h2>
+        <p>Si el correo ingresado está registrado, recibirás un código de verificación.</p>
+
+        <a href="{% url 'verify_code' %}" class="submit-btn">Ingresar código</a>
+    </div>
+</div>
+{% endblock %}

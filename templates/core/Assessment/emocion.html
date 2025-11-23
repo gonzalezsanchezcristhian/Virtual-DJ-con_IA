@@ -1,0 +1,74 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detección de Emoción | DJ Virtual</title>
+  <link rel="stylesheet" href="{% static 'Assessment/css/detectar.css' %}">
+</head>
+
+<body>
+  <div class="emocion-container" id="pantalla-detectar">
+    <div class="emocion-card">
+      <h2 class="titulo">
+        Permíteme detectar tu emoción<br>para elegir la música ideal 🎵
+      </h2>
+      <video id="video" width="320" height="240" autoplay muted></video>
+      <button id="btnDetectar" class="btn-detectar">Detectar emoción</button>
+      <button id="btnVolverDetectar" class="btn-volver-detectar" style="display:none; margin-left:8px;">Volver a detectar</button>
+      <p id="mensaje" class="mensaje">Analizando...</p>
+      <p id="resultado" class="resultado"></p>
+
+      <button id="btnReproducir" class="btn-reproducir" style="display:none;">
+        Reproducir Playlist
+      </button>
+      <div style="margin-top:12px;">
+        <a href="{% url 'assessment_app' %}" class="btn-principal" style="display:inline-block; margin-top:8px;">Regresar a la página principal</a>
+      </div>
+    </div>
+  </div>
+  <div id="modalPlaylist" class="modal">
+    <div class="modal-content">
+      <span class="cerrar">&times;</span>
+      <div id="playlistContainer"></div>
+      <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <button id="otraPlaylistBtn" class="btn-control">🔁 Otra playlist</button>
+        <div id="spotify-debug" style="font-size:12px; color:#666;">&nbsp;</div>
+      </div>
+      <div id="spotify-error" style="margin-top:8px; color:#fff; background:#b33; padding:8px; display:none; border-radius:6px; font-size:13px;">
+        <strong>Problema de reproducción:</strong>
+        <div id="spotify-error-text" style="margin-top:6px;"></div>
+        <div style="margin-top:8px; font-size:12px; opacity:0.9;">Si no tienes cuenta Premium, usa el botón de reproducir en las tarjetas (embed) o <a href="/assessment/spotify/login/" style="color:#fff; text-decoration:underline;">vuelve a autorizar Spotify</a>.</div>
+      </div>
+    </div>
+  </div>
+  <div id="spotify-player" style="display:none; text-align:center; margin-top:20px;">
+    <h3>Reproduciendo ahora 🎶</h3>
+    <div id="player-status">Conectando con Spotify...</div>
+    <div style="margin-top:10px;">
+      <button id="pause-btn" class="btn-control">⏸️ Pausar</button>
+      <button id="resume-btn" class="btn-control">▶️ Reanudar</button>
+    </div>
+  </div>
+  <div id="playlists" style="display:none;"></div>
+  <script src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="{% static 'Assessment/js/detectar.js' %}"></script>
+{% if request.session.spotify_token %}
+<script>
+  sessionStorage.setItem("spotify_token", "{{ request.session.spotify_token }}");
+  console.log("✅ Token de Spotify guardado en sessionStorage");
+</script>
+{% endif %}
+{% if request.session.spotify_user_product %}
+<script>
+  // Exponer el tipo de cuenta Spotify al frontend (premium/free)
+  window.__spotifyUserProduct = "{{ request.session.spotify_user_product }}";
+  console.log("spotify_user_product:", window.__spotifyUserProduct);
+</script>
+{% endif %}
+</body>
+</html>
+{% endblock %}

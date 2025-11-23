@@ -1,0 +1,39 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Authentication/css/login.css' %}">
+
+<div class="login-wrapper">
+    <div class="login-box">
+        <div class="logo">
+            <img src="{% static 'Authentication/image/icono_dj.png' %}" alt="Logo DJ Virtual">
+            <h1>DJ Virtual Emocional 🎧</h1>
+        </div>
+
+        <h2>Bienvenido/a</h2>
+
+        <form method="POST">
+
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Correo electrónico" required style="text-align: center;">
+                <input type="password" name="password" placeholder="Contraseña" required style="text-align: center;">
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-bottom: 8px;">Iniciar Sesión</button>
+                <a href="{% url 'signup' %}" class="btn-morado" style="width: 100%; margin-bottom: 8px;">Registrarse</a>
+            </div>
+
+
+            <div class="links">
+                <a href="{% url 'password_reset_custom' %}">¿Olvidaste tu contraseña?</a><br>
+            </div>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+
+        <p class="footer">Proyecto de DJ Virtual Emocional - UNEMI 2025</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,145 @@
+.btn-morado {
+    width: 100%;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+    display: block;
+    text-align: center;
+    box-shadow: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-morado:hover {
+    background-color: #1e40af;
+}
+body {
+    background: radial-gradient(circle at top, #0b0422, #090021);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-box {
+    background: rgba(20, 15, 50, 0.8);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.logo img {
+    width: 80px;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+h2 {
+    margin: 20px 0;
+    font-weight: 400;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #1a143a;
+    color: white;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #b5b5b5;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #215c39;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #2a7a4d;
+}
+
+.btn-spotify, .btn-google {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-spotify {
+    background-color: #1a1b1b;
+    color: white;
+}
+
+.btn-google {
+    background-color: white;
+    color: #333;
+}
+
+.btn-spotify img, .btn-google img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.links {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.links a {
+    color: #b8b3ff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #ff6b6b;
+    margin-top: 10px;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #b873b6;
+}

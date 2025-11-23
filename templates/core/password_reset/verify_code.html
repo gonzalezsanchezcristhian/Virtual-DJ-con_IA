@@ -1,0 +1,31 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Authentication/css/recuperar.css' %}">
+
+<div class="recover-container">
+    <div class="recover-card">
+        <div class="icon-container">
+            <i class="lock-icon">🔒</i>
+        </div>
+
+        <img src="{% static 'Authentication/image/Logo2.png' %}" alt="MODAMIND Logo" class="logo-img">
+        <h2>Verificación de código</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="email" class="email-label">Correo electrónico:</label>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+
+            <label for="code" class="email-label">Código:</label>
+            <input type="text" name="code" placeholder="Código de verificación" required>
+
+            <button type="submit" class="submit-btn">Verificar</button>
+
+            {% if error %}
+                <p class="error-text">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

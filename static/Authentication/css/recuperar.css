@@ -1,0 +1,107 @@
+body {
+    background-color: #0e0e0e;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.recover-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top center, rgba(100, 0, 150, 0.25), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(100, 0, 150, 0.25), transparent 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recover-card {
+    background: #141414;
+    padding: 45px 50px;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(128, 0, 255, 0.25);
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+}
+
+.lock-icon {
+    font-size: 45px;
+    color: #a855f7;
+    text-shadow: 0 0 25px rgba(168, 85, 247, 0.8);
+}
+
+.logo-img {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.recover-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.recover-card p {
+    color: #ccc;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.email-label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.recover-card input[type="email"],
+.recover-card input[type="text"],
+.recover-card input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #1f1f1f;
+    color: white;
+    margin-bottom: 18px;
+    font-size: 0.9em;
+}
+
+.recover-card input::placeholder {
+    color: #777;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px 0;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.submit-btn:hover {
+    background: #16a34a;
+}
+
+.error-text {
+    color: #f87171;
+    font-size: 0.9em;
+    margin-top: 8px;
+}

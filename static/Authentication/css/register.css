@@ -1,0 +1,126 @@
+body {
+    background: radial-gradient(circle at top, #2a004c, #000);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-card {
+    background: rgba(25, 0, 50, 0.85);
+    border-radius: 20px;
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(155, 0, 255, 0.4);
+}
+
+.register-logo img {
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, rgba(155,0,255,0.5), transparent);
+    border-radius: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 6px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e1b2b;
+    color: white;
+    font-size: 14px;
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    font-size: 13px;
+    margin: 10px 0 20px;
+    text-align: left;
+}
+
+.checkbox input {
+    margin-top: 2px;
+    margin-right: 10px;
+    accent-color: #1DB954;
+}
+
+.btn-register {
+    background-color: #1DB954;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #28c765;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.login-link a {
+    color: #6a80ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #ff5e5e;
+    font-size: 14px;
+    margin-top: 10px;
+}

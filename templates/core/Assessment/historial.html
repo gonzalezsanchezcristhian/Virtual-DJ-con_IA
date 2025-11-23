@@ -1,0 +1,77 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Assessment/css/historial.css' %}">
+
+<div class="historial-container">
+  <a href="{% url 'assessment_app' %}" class="back-btn">⬅ Volver al inicio</a>
+  <h2>📊 Historial de Emociones</h2>
+  <p>Registro emocional de {{ request.user.first_name|default:request.user.username }}</p>
+
+  <canvas id="graficoEmociones" width="400" height="200"></canvas>
+
+ 
+  {% if historial %}
+  <table class="tabla-emociones">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Emoción detectada</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in historial %}
+      <tr>
+        <td>{{ e.fecha|date:"d/m/Y H:i" }}</td>
+        <td class="emocion">{{ e.emocion|upper }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="sin-registros">Aún no se han registrado emociones 😕</p>
+  {% endif %}
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('graficoEmociones');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: {{ labels|safe }},
+    datasets: [{
+      label: 'Emociones detectadas',
+      data: {{ values|safe }},
+      backgroundColor: ['#a855f7','#9333ea','#7e22ce','#581c87','#c084fc'],
+      borderColor: '#fff',
+      borderWidth: 1,
+      borderRadius: 8
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { color: '#fff' },
+        grid: { color: 'rgba(255,255,255,0.1)' }
+      },
+      x: {
+        ticks: { color: '#fff' },
+        grid: { color: 'rgba(255,255,255,0.1)' }
+      }
+    },
+    plugins: {
+      legend: { labels: { color: '#fff' } },
+      title: {
+        display: true,
+        text: 'Frecuencia de emociones por tipo',
+        color: '#c084fc',
+        font: { size: 16 }
+      }
+    }
+  }
+});
+</script>
+{% endblock %}

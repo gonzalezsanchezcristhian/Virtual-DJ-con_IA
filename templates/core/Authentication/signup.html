@@ -1,0 +1,73 @@
+{% extends "components/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'Authentication/css/register.css' %}">
+
+<div class="register-container">
+    <div class="register-card">
+        <div class="register-logo">
+            <img src="{% static 'Authentication/image/user_icon.png' %}" alt="Usuario">
+        </div>
+
+        <h2>Crear una Cuenta</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+                {{ form.first_name.errors }}
+            </div>
+
+            <div class="input-group">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+
+            <div class="input-group">
+                {{ form.genero.label_tag }}
+                {{ form.genero }}
+                {{ form.genero.errors }}
+            </div>
+
+            <div class="input-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="input-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+
+            <div class="input-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">
+                    Aceptas las Condiciones del servicio de Dj Virtual y confirmas que has leído la política de privacidad.
+                </label>
+            </div>
+
+            <button type="submit" class="btn-register">Crear Cuenta</button>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+
+        <p class="login-link">
+            ¿Ya tienes una cuenta?
+            <a href="{% url 'signin' %}">Iniciar Sesión</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
