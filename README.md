@@ -1,6 +1,5 @@
-Aquí tienes un README adaptado para tu proyecto Virtual DJ con IA, siguiendo el mismo estilo y estructura del ejemplo que compartiste:
 
-Integrantes:
+# Integrantes:
 - Verónica Pin
 - Cristhian Gonzalez
 - Christopher Aguiño
