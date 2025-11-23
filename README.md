@@ -4,11 +4,12 @@ Integrantes:
 - Verónica Pin
 - Cristhian Gonzalez
 - Christopher Aguiño
-Virtual DJ con IA 🎶🤖
+# Virtual DJ con IA 🎶🤖
 Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza inteligencia artificial para la mezcla y recomendación automática de música. Permite a los usuarios subir canciones, generar mezclas inteligentes en tiempo real y recibir sugerencias basadas en su estilo musical. Además, ofrece visualizaciones interactivas y herramientas para DJs principiantes y avanzados.
-image
-image
-image
+<img width="1900" height="919" alt="image" src="https://github.com/user-attachments/assets/2bb995ee-8f09-4766-b5c2-c41a5e9e73c4" />
+<img width="1884" height="890" alt="image" src="https://github.com/user-attachments/assets/0b162e2c-481f-44e4-b611-a9b359a49272" />
+<img width="1881" height="910" alt="image" src="https://github.com/user-attachments/assets/af28d809-ffaf-429d-a6d8-ef59df877fc1" />
+
 
 Características principales
 - Mezcla automática de canciones mediante IA (detección de tempo, tono y género).
