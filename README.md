@@ -26,6 +26,7 @@ Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza intel
 - Otros: Django Storages, python-decouple, dotenv
 
 # Estructura del proyecto
+```
 ├── manage.py                  # Script principal para ejecutar comandos Django
 ├── requirements.txt           # Lista de dependencias del proyecto
 ├── .env                       # Variables de entorno (credenciales, configuración)
@@ -39,6 +40,7 @@ Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza intel
 ├── static/                   # Archivos estáticos (CSS, JS, imágenes)
 ├── templates/                # Plantillas HTML para renderizar vistas
 
+```
 
 Instalación y configuración
 - Clona el repositorio y entra al directorio:
