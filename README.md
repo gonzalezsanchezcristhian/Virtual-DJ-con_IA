@@ -58,28 +58,90 @@ venv\Scripts\activate
 
 # En Linux/Mac
 source venv/bin/activate
+
 ``` 
-- Instala las dependencias:
-pip install -r requirements.txt
-- Configura las variables de entorno:
+**- Instala las dependencias:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+**- Configura las variables de entorno:**
 - Renombra .env.example a .env y completa los datos de la base de datos y AWS S3.
-Variables de entorno (.env)- Ejemplo:
+## Variables de entorno (`.env`)
+- Ejemplo:
 # Base de datos
-DB_ENGINE=django.db.backends.postgresql
-DB_DATABASE=nombre_db
-DB_USERNAME=usuario
-DB_PASSWORD=contraseña
-DB_SOCKET=localhost
-DB_PORT=5432
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+LANGUAGE_CODE = 'es'
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_TZ = True
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static"  
+]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'Authentication.CustomUser'
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Amazon S3
-AWS_ACCESS_KEY_ID=...
-AWS_SECRET_ACCESS_KEY=...
-AWS_DEFAULT_REGION=us-east-2
-AWS_STORAGE_BUCKET_NAME=...
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", default="us-east-2")
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+AWS_S3_OBJECT_PARAMETERS = {
+    "CacheControl": "max-age=86400",
+    # 👇 👇 Esta línea evita que boto3 intente aplicar ACLs
+    "ACL": "private"
+}
+# URL base del bucket
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 
-# API para noticias musicales
-API_KEY_NEWSAPI=...
+# Activar Django-Storages
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+# MEDIA_URL apuntando a tu bucket
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+
+
+# API para Spotify
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
+SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI")
 
 # Email settings
 EMAIL_BACKEND=...
@@ -89,18 +151,21 @@ EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False
 EMAIL_HOST_USER=...
 EMAIL_HOST_PASSWORD=...
-DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
-- Realiza las migraciones y crea un superusuario:
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER  
+**- Realiza las migraciones:**
+```bash
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuperuser
-- Ejecuta el servidor de desarrollo:
+```
+**- Ejecuta el servidor de desarrollo:**
+```bash
 python manage.py runserver
-- Accede a la aplicación:
+```
+**- Accede a la aplicación:**
 - Ve a http://127.0.0.1:8000/ en tu navegador.
 
-Uso
-- Mezclar canciones:
+## Uso
+**- Mezclar canciones:**
 - Sube tus pistas y deja que la IA genere mezclas automáticas.
 - Visualiza espectrogramas y ondas de sonido en tiempo real.
 - Historial:
