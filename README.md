@@ -42,10 +42,12 @@ Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza intel
 
 ```
 
-Instalación y configuración
-- Clona el repositorio y entra al directorio:
+# Instalación y configuración
+**- Clona el repositorio y entra al directorio:**
+ ```
 git clone <repo_url>
 cd VirtualDJ_IA
+ ```
 - Crea y activa un entorno virtual:
 python -m venv venv
 
