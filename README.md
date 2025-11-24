@@ -19,11 +19,11 @@ Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza intel
 - Historial emocional y musical que permite consultar las emociones detectadas y las canciones recomendadas en cada sesión.
 
 # Tecnologías utilizadas
-- Backend: Django 5.2.1, sqlitebrowser
-- Frontend: Bootstrap 5, HTML5, CSS3, JavaScript
-- IA: Modelos de Machine Learning para análisis de audio (Librosa, TensorFlow/PyTorch)
-- Almacenamiento de archivos: AWS S3 (perfiles), almacenamiento local (canciones)
-- Otros: Django Storages, python-decouple, dotenv
+- **Backend:** Django 5.2.1, sqlitebrowser
+- **Frontend:** Bootstrap 5, HTML5, CSS3, JavaScript
+- **IA:** Modelos de Machine Learning para análisis de audio (Librosa, TensorFlow/PyTorch)
+- **Almacenamiento de archivos:** AWS S3 (perfiles), almacenamiento local (canciones)
+- **Otros:** Django Storages, python-decouple, dotenv
 
 # Estructura del proyecto
 ```
