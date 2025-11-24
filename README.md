@@ -68,7 +68,8 @@ source venv/bin/activate
 - Renombra .env.example a .env y completa los datos de la base de datos y AWS S3.
 ## Variables de entorno (`.env`)
 - Ejemplo:
-# Base de datos
+**Base de datos**
+```bash
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -116,8 +117,9 @@ DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Amazon S3
+```
+**Amazon S3**
+```bash
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
@@ -136,14 +138,16 @@ DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # MEDIA_URL apuntando a tu bucket
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+```
 
-
-# API para Spotify
+**API para Spotify**
+```bash
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI")
-
-# Email settings
+```
+**Email settings**
+```bash
 EMAIL_BACKEND=...
 EMAIL_HOST=...
 EMAIL_PORT=...
@@ -151,7 +155,8 @@ EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False
 EMAIL_HOST_USER=...
 EMAIL_HOST_PASSWORD=...
-DEFAULT_FROM_EMAIL=EMAIL_HOST_USER  
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
+``` 
 **- Realiza las migraciones:**
 ```bash
 python manage.py makemigrations
@@ -165,19 +170,20 @@ python manage.py runserver
 - Ve a http://127.0.0.1:8000/ en tu navegador.
 
 ## Uso
-**- Mezclar canciones:**
-- Sube tus pistas y deja que la IA genere mezclas automáticas.
-- Visualiza espectrogramas y ondas de sonido en tiempo real.
-- Historial:
-- Consulta tu historial de mezclas y recomendaciones.
-- Modo DJ:
-- Activa el modo en vivo para mezclar canciones directamente desde la plataforma.
-- Noticias y consejos:
-- Accede a información actualizada sobre música, producción y tendencias.
+**- Detectar emociones:**
+- Activa tu cámara para que la IA analice tus expresiones faciales en tiempo real.
+- El sistema identifica tu estado emocional (felicidad, tristeza, enojo, calma, etc.).
+**- Recomendación musical personalizada:**
+- Recibe sugerencias musicales directamente desde Spotify, adaptadas a tu estado emocional actual.
+- Explora playlists dinámicas que se ajustan a tus emociones.
+**- Historial emocional y musical:**
+- Consulta tu historial de emociones detectadas y las canciones recomendadas en cada sesión.
+**- Visualización interactiva:**
+- Observa gráficas de emociones, indicadores de estado y evolución emocional a lo largo del tiempo.
 
-Créditos
+# Créditos
 - Proyecto desarrollado por estudiantes de la UNEMI 2025.
 - Modelos de IA entrenados para análisis musical con librerías de audio.
 
-Licencia
+# Licencia
 Este proyecto es de uso académico y educativo. Consulta la licencia específica en el repositorio.
