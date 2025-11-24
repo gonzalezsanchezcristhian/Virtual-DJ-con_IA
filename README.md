@@ -26,19 +26,19 @@ Virtual DJ con IA es una plataforma web desarrollada en Django que utiliza intel
 - Otros: Django Storages, python-decouple, dotenv
 
 # Estructura del proyecto
-├── manage.py
-├── requirements.txt
-├── .env
-├── mysite/                # Configuración principal de Django
-├── djapp/                 # App principal (modelos, vistas, IA musical)
-│   ├── modelos/           # Modelos entrenados para análisis de audio
-│   └── views/             # Vistas especializadas (mezclas, autenticación, etc.)
-├── media/                 # Archivos de usuarios y canciones
-├── static/                # Archivos estáticos (CSS, JS, imágenes)
-├── templates/             # Plantillas HTML
-└── ...
+├── manage.py                  # Script principal para ejecutar comandos Django
+├── requirements.txt           # Lista de dependencias del proyecto
+├── .env                       # Variables de entorno (credenciales, configuración)
+├── .gitignore                 # Archivos y carpetas ignoradas por Git
+├── db.sqlite3                 # Base de datos local (puede cambiarse por PostgreSQL)
+├── DjVirtual/                 # Configuración principal del proyecto Django
+├── Authentication/           # App encargada del registro, login y perfiles de usuario
+├── Assessment/               # App encargada de la detección de emociones (IA)
+├── ent/                      # Módulo auxiliar (puede incluir lógica de entidades o utilidades)
+├── media/                    # Archivos multimedia (fotos de perfil, capturas faciales)
+├── static/                   # Archivos estáticos (CSS, JS, imágenes)
+├── templates/                # Plantillas HTML para renderizar vistas
 
-
 
 Instalación y configuración
 - Clona el repositorio y entra al directorio:
