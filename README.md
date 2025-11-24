@@ -171,14 +171,21 @@ python manage.py runserver
 
 ## Uso
 **- Detectar emociones:**
+
 - Activa tu cámara para que la IA analice tus expresiones faciales en tiempo real.
 - El sistema identifica tu estado emocional (felicidad, tristeza, enojo, calma, etc.).
+- 
 **- Recomendación musical personalizada:**
+  
 - Recibe sugerencias musicales directamente desde Spotify, adaptadas a tu estado emocional actual.
 - Explora playlists dinámicas que se ajustan a tus emociones.
+- 
 **- Historial emocional y musical:**
+  
 - Consulta tu historial de emociones detectadas y las canciones recomendadas en cada sesión.
+- 
 **- Visualización interactiva:**
+  
 - Observa gráficas de emociones, indicadores de estado y evolución emocional a lo largo del tiempo.
 
 # Créditos
